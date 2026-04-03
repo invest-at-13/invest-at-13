@@ -1,49 +1,422 @@
 ---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, CATEGORIES } from '../consts';
+
+const allPosts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latestPosts = allPosts.slice(0, 6);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
+
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-inner">
+				<div class="hero-badge">📝 13歳のリアルな体験記</div>
+				<h1 class="hero-title">
+					13歳が本気で語る<br/>
+					<span class="hero-accent">AI・投資・ゲーム・料理</span>
+				</h1>
+				<p class="hero-desc">
+					中学1年生が実際に試して、学んで、失敗して、気づいたことを正直に書いてます。
+					難しい言葉を使わず、同年代の子にも伝わるように書くのが目標。
+				</p>
+				<div class="hero-actions">
+					<a href="/invest-at-13/blog/" class="btn-primary">記事を読む →</a>
+					<a href="/invest-at-13/about/" class="btn-secondary">プロフィール</a>
+				</div>
+			</div>
+
+			<!-- Topic chips -->
+			<div class="topic-chips">
+				{CATEGORIES.map(cat => (
+					<a href={`/invest-at-13/categories/${cat.value}/`} class={`topic-chip ${cat.value}`}>
+						{cat.emoji} {cat.label}
+					</a>
+				))}
+			</div>
+		</section>
+
+		<!-- Latest Posts -->
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="latest-posts">
+				<div class="section-header">
+					<h2 class="section-title">最新記事</h2>
+					<a href="/invest-at-13/blog/" class="see-all">すべて見る →</a>
+				</div>
+
+				{latestPosts.length > 0 ? (
+					<div class="posts-grid">
+						{latestPosts.map((post, index) => {
+							const catInfo = post.data.category
+								? CATEGORIES.find(c => c.value === post.data.category)
+								: null;
+							return (
+								<article class={`post-card ${index === 0 ? 'post-card--featured' : ''}`}>
+									<a href={`/invest-at-13/blog/${post.id}/`} class="card-link" tabindex="-1" aria-hidden="true">
+										{post.data.heroImage && (
+											<div class="card-image">
+												<Image
+													width={index === 0 ? 860 : 480}
+													height={index === 0 ? 400 : 260}
+													src={post.data.heroImage}
+													alt={post.data.title}
+												/>
+											</div>
+										)}
+									</a>
+									<div class="card-body">
+										<div class="card-meta">
+											{catInfo && (
+												<a href={`/invest-at-13/categories/${catInfo.value}/`} class={`category-badge ${catInfo.value}`}>
+													{catInfo.emoji} {catInfo.label}
+												</a>
+											)}
+											<time class="card-date" datetime={post.data.pubDate.toISOString()}>
+												<FormattedDate date={post.data.pubDate} />
+											</time>
+										</div>
+										<h3 class="card-title">
+											<a href={`/invest-at-13/blog/${post.id}/`}>{post.data.title}</a>
+										</h3>
+										<p class="card-desc">{post.data.description}</p>
+									</div>
+								</article>
+							);
+						})}
+					</div>
+				) : (
+					<div class="no-posts">
+						<p>まだ記事がありません。最初の記事を楽しみにしていてください！</p>
+					</div>
+				)}
+			</section>
+
+			<!-- Category Section -->
+			<section class="categories-section">
+				<div class="section-header">
+					<h2 class="section-title">カテゴリーで探す</h2>
+				</div>
+				<div class="categories-grid">
+					{CATEGORIES.map(cat => (
+						<a href={`/invest-at-13/categories/${cat.value}/`} class={`cat-card cat-card--${cat.value}`}>
+							<span class="cat-emoji">{cat.emoji}</span>
+							<span class="cat-label">{cat.label}</span>
+						</a>
+					))}
+				</div>
+			</section>
+
+			<!-- About teaser -->
+			<section class="about-teaser">
+				<div class="about-teaser-inner">
+					<div class="about-avatar">🧑‍💻</div>
+					<div class="about-text">
+						<h2>このブログについて</h2>
+						<p>
+							はじめまして！invest-at-13です。13歳（中学1年生）です。
+							AIツールを使った勉強、ちょっとした投資の勉強、ゲーム攻略、
+							自炊レシピなど、日常のことを本気で語っています。
+						</p>
+						<a href="/invest-at-13/about/" class="btn-secondary">もっと読む →</a>
+					</div>
+				</div>
+			</section>
 		</main>
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	/* Hero */
+	.hero {
+		background: linear-gradient(135deg, #f0f4ff 0%, #fafafa 60%, #fff7f0 100%);
+		border-bottom: 1px solid var(--gray-light);
+		padding: 4rem 1rem 2rem;
+	}
+	.hero-inner {
+		max-width: var(--max-width);
+		margin: 0 auto;
+	}
+	.hero-badge {
+		display: inline-block;
+		background: var(--accent-light);
+		color: var(--accent);
+		font-size: 0.83rem;
+		font-weight: 600;
+		padding: 0.3rem 0.85rem;
+		border-radius: var(--radius-full);
+		margin-bottom: 1.2rem;
+		letter-spacing: 0.02em;
+	}
+	.hero-title {
+		font-size: 2.8rem;
+		line-height: 1.25;
+		margin: 0 0 1rem 0;
+		letter-spacing: -0.02em;
+	}
+	.hero-accent {
+		color: var(--accent);
+	}
+	.hero-desc {
+		font-size: 1.1rem;
+		color: var(--gray-dark);
+		max-width: 600px;
+		line-height: 1.75;
+		margin: 0 0 1.8rem 0;
+	}
+	.hero-actions {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+	.btn-primary {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.7rem 1.4rem;
+		background: var(--accent);
+		color: white;
+		border-radius: var(--radius-full);
+		font-weight: 600;
+		font-size: 0.95rem;
+		text-decoration: none;
+		transition: background 0.15s, transform 0.15s;
+	}
+	.btn-primary:hover {
+		background: var(--accent-dark);
+		color: white;
+		transform: translateY(-1px);
+	}
+	.btn-secondary {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.7rem 1.4rem;
+		background: var(--white);
+		color: var(--gray-dark);
+		border: 1px solid var(--gray-light);
+		border-radius: var(--radius-full);
+		font-weight: 600;
+		font-size: 0.95rem;
+		text-decoration: none;
+		transition: background 0.15s, border-color 0.15s;
+	}
+	.btn-secondary:hover {
+		background: var(--gray-lighter);
+		color: var(--accent);
+		border-color: var(--accent);
+	}
+
+	/* Topic chips */
+	.topic-chips {
+		max-width: var(--max-width);
+		margin: 2rem auto 0;
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+	.topic-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.4rem 0.9rem;
+		border-radius: var(--radius-full);
+		font-size: 0.85rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition: opacity 0.15s, transform 0.15s;
+	}
+	.topic-chip:hover { opacity: 0.8; transform: translateY(-1px); }
+	.topic-chip.ai { background: #f3f0ff; color: var(--cat-ai); }
+	.topic-chip.investment { background: #ecfdf5; color: var(--cat-investment); }
+	.topic-chip.game { background: #fff5f5; color: var(--cat-game); }
+	.topic-chip.cooking { background: #fffbeb; color: var(--cat-cooking); }
+	.topic-chip.gadget { background: #ecfeff; color: var(--cat-gadget); }
+
+	/* Section */
+	.section-header {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		margin-bottom: 1.5rem;
+	}
+	.section-title {
+		font-size: 1.5rem;
+		margin: 0;
+	}
+	.see-all {
+		font-size: 0.9rem;
+		color: var(--accent);
+		font-weight: 500;
+		text-decoration: none;
+	}
+	.see-all:hover { text-decoration: underline; }
+
+	/* Posts grid */
+	.latest-posts { margin-bottom: 3.5rem; }
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+	}
+	.post-card--featured {
+		grid-column: 1 / -1;
+	}
+	.post-card {
+		background: var(--white);
+		border-radius: var(--radius-md);
+		border: 1px solid var(--gray-light);
+		overflow: hidden;
+		transition: box-shadow 0.2s, transform 0.2s;
+	}
+	.post-card:hover {
+		box-shadow: var(--shadow-lg);
+		transform: translateY(-3px);
+	}
+	.card-link { display: block; }
+	.card-image {
+		overflow: hidden;
+		background: var(--gray-lighter);
+	}
+	.card-image img {
+		width: 100%;
+		height: 220px;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.3s ease;
+		display: block;
+	}
+	.post-card--featured .card-image img {
+		height: 320px;
+	}
+	.post-card:hover .card-image img {
+		transform: scale(1.03);
+	}
+	.card-body {
+		padding: 1.1rem 1.25rem 1.3rem;
+	}
+	.card-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-bottom: 0.6rem;
+		flex-wrap: wrap;
+	}
+	.card-date {
+		font-size: 0.82rem;
+		color: var(--gray);
+	}
+	.card-title {
+		font-size: 1.05rem;
+		line-height: 1.4;
+		margin: 0 0 0.5rem 0;
+	}
+	.card-title a {
+		color: var(--black);
+		text-decoration: none;
+	}
+	.card-title a:hover { color: var(--accent); }
+	.post-card--featured .card-title {
+		font-size: 1.4rem;
+	}
+	.card-desc {
+		font-size: 0.88rem;
+		color: var(--gray);
+		line-height: 1.6;
+		margin: 0;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.no-posts {
+		text-align: center;
+		padding: 3rem;
+		color: var(--gray);
+		background: var(--gray-lighter);
+		border-radius: var(--radius-md);
+	}
+
+	/* Categories grid */
+	.categories-section { margin-bottom: 3.5rem; }
+	.categories-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 0.75rem;
+	}
+	.cat-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 1.2rem 0.5rem;
+		border-radius: var(--radius-md);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.88rem;
+		transition: transform 0.15s, box-shadow 0.15s;
+		border: 1px solid transparent;
+	}
+	.cat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+	.cat-emoji { font-size: 1.8rem; }
+	.cat-label { line-height: 1.2; text-align: center; }
+	.cat-card--ai { background: #f3f0ff; color: var(--cat-ai); border-color: #ddd6fe; }
+	.cat-card--investment { background: #ecfdf5; color: var(--cat-investment); border-color: #a7f3d0; }
+	.cat-card--game { background: #fff5f5; color: var(--cat-game); border-color: #fecaca; }
+	.cat-card--cooking { background: #fffbeb; color: var(--cat-cooking); border-color: #fde68a; }
+	.cat-card--gadget { background: #ecfeff; color: var(--cat-gadget); border-color: #a5f3fc; }
+
+	/* About teaser */
+	.about-teaser {
+		background: var(--accent-light);
+		border-radius: var(--radius-lg);
+		padding: 2rem;
+		margin-bottom: 2rem;
+		border: 1px solid #c7d2fe;
+	}
+	.about-teaser-inner {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.5rem;
+	}
+	.about-avatar {
+		font-size: 3.5rem;
+		line-height: 1;
+		flex-shrink: 0;
+	}
+	.about-text h2 {
+		font-size: 1.3rem;
+		margin: 0 0 0.6rem 0;
+	}
+	.about-text p {
+		font-size: 0.95rem;
+		color: var(--gray-dark);
+		margin: 0 0 1rem 0;
+	}
+
+	@media (max-width: 720px) {
+		.hero-title { font-size: 2rem; }
+		.posts-grid { grid-template-columns: 1fr; }
+		.post-card--featured { grid-column: auto; }
+		.categories-grid { grid-template-columns: repeat(3, 1fr); }
+		.about-teaser-inner { flex-direction: column; gap: 1rem; }
+		.about-avatar { font-size: 2.5rem; }
+	}
+	@media (max-width: 480px) {
+		.categories-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+</style>

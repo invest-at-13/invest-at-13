@@ -1,16 +1,83 @@
 ---
-title: 'Second post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 15 2022'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+title: "ChatGPTを1ヶ月使ってわかった、中学生的な使い方"
+description: "AIを毎日使い続けて気づいたこと。宿題に使うと怒られる？正直に書きます。中学生目線のリアルなAI活用レポート。"
+pubDate: "Apr 10 2024"
+category: "ai"
+heroImage: "../../assets/chatgpt-hero.png"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+## AIを使い始めたきっかけ
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+最初にChatGPTを使ったのは、数学の問題が解けなかったときです。
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+「これ、教えてくれない？」って入力したら、めちゃくちゃ丁寧に説明してくれた。びっくりしました。
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+でも、それだけじゃなくて。「あ、これって色々使えるんじゃないか」と思って、1ヶ月いろいろ試してみました。
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+## やってよかったこと
+
+### 英語の作文チェック
+
+英語の宿題で作文を書いて、ChatGPTに「間違い直して、なぜ間違いか説明して」って頼みました。
+
+これが最高でした。先生に提出前に練習できるし、なぜ間違えたかの説明が丁寧だから、次は同じミスをしにくくなる。
+
+### アイデア出しのパートナー
+
+このブログのテーマを考えるときも使いました。「13歳が書くブログのテーマを10個考えて」って頼んで、そこから自分なりにアレンジしました。
+
+全部そのまま使うんじゃなくて、「これは面白い」「これは違う」って選ぶための材料として使うのがいい感じ。
+
+## うまくいかなかったこと
+
+### 頼りすぎると自分で考えなくなる
+
+AIに聞けばすぐ答えが出るから、自分で考える時間が減った気がする。
+
+便利すぎるのも問題で、「まず自分で考えてからAIに聞く」っていう順番が大事だと思った。
+
+### 「それっぽい嘘」に気をつけて
+
+AIは間違ったことを自信満々に言うことがあります。
+
+調べものでAIの回答をそのまま信じると危ない。実際に使ってて「あれ、これ本当？」って思うことが何回かあった。
+
+重要なことは必ず別のサイトや本で確認するクセをつけました。
+
+## 注意すべき点
+
+### 画像認識は信用しすぎるな
+
+AIに画像を読み取らせることもできるんだけど、**影があったりボケてたりすると変なことを言い始める。**
+
+はっきり写ってる画像なら結構正確だけど、ちょっとでも条件が悪いと全然違う答えを返してくる。画像系は特に「AIの答え＝正解」とは思わない方がいい。
+
+### 個人情報は絶対に入れない
+
+名前、住所、学校名とか、AIに入力した情報がどう使われるかわからない。便利でも個人情報は入力しないようにしてる。
+
+### AIは1つに絞らない、使い分ける
+
+ChatGPTだけじゃなくて、Gemini（Google）やClaude（Anthropic）も使ってる。それぞれ得意なことが違う。
+
+- **ChatGPT** --- 万能。とりあえず聞くならこれ
+- **Gemini** --- 画像生成が強い。このブログの画像もGeminiで作った
+- **Claude** --- 長い文章や複雑なコードに強い。このブログ自体もClaude Codeで作った
+
+1つのAIの答えが微妙だったら、別のAIにも聞いてみる。これだけで精度がかなり上がる。
+
+### 無料と有料の違いを知っておく
+
+ChatGPTもClaudeも無料で使えるけど、有料プランとの差がある。無料で十分なことも多いから、いきなり課金する必要はない。中学生は特に。
+
+## まとめ
+
+AIは「勉強をしてくれるもの」じゃなくて「勉強を助けてくれるもの」だと思います。
+
+受け身でいると何も身につかないけど、自分で考えながら使うと本当に便利。
+
+使い方次第で、めちゃくちゃいいツールになります。**でも、信用しすぎないこと。**
+
+---
+
+*次回は投資の勉強を始めた話を書く予定です！*

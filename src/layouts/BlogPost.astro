@@ -5,82 +5,172 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import { CATEGORIES } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category } = Astro.props;
+
+const categoryInfo = category ? CATEGORIES.find(c => c.value === category) : null;
 ---
 
-<html lang="en">
+<html lang="ja">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage} type="article" pubDate={pubDate} />
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
+			.post-header {
+				max-width: var(--max-width);
+				margin: 0 auto;
+				padding: 2.5rem 1rem 0;
+			}
+			.post-meta {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				margin-bottom: 1rem;
+				flex-wrap: wrap;
+			}
+			.post-date {
+				font-size: 0.88rem;
+				color: var(--gray);
+			}
+			.post-title {
+				font-size: 2.2rem;
+				line-height: 1.25;
+				margin: 0 0 1rem 0;
+				color: var(--black);
+			}
+			.post-description {
+				font-size: 1.05rem;
+				color: var(--gray-dark);
+				line-height: 1.7;
+				margin: 0 0 1.5rem 0;
+				border-left: 3px solid var(--accent);
+				padding-left: 1rem;
 			}
 			.hero-image {
-				width: 100%;
+				max-width: var(--max-width);
+				margin: 0 auto 0;
+				padding: 0 1rem;
 			}
 			.hero-image img {
-				display: block;
+				width: 100%;
+				height: auto;
+				max-height: 460px;
+				object-fit: cover;
+				border-radius: var(--radius-lg);
+				box-shadow: var(--shadow-md);
+			}
+			.post-body {
+				max-width: var(--max-width);
 				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				padding: 2rem 1rem;
 			}
 			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+				font-size: 1.05rem;
+				line-height: 1.9;
+				color: var(--gray-dark);
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
+			.prose h2 {
+				font-size: 1.6rem;
+				margin-top: 2.5rem;
+				padding-top: 1rem;
+				border-top: 1px solid var(--gray-light);
 			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
+			.prose h3 {
+				font-size: 1.25rem;
+				margin-top: 2rem;
+				color: var(--accent-dark);
 			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+			.divider {
+				border: none;
+				border-top: 1px solid var(--gray-light);
+				margin: 2rem 0;
 			}
-			.last-updated-on {
+			.update-notice {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				font-size: 0.83rem;
+				color: var(--gray);
 				font-style: italic;
+			}
+
+			/* Post navigation */
+			.post-nav {
+				max-width: var(--max-width);
+				margin: 0 auto;
+				padding: 0 1rem 1rem;
+			}
+			.back-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				padding: 0.55rem 1rem;
+				background: var(--gray-lighter);
+				color: var(--gray-dark);
+				border-radius: var(--radius-full);
+				font-size: 0.9rem;
+				font-weight: 500;
+				text-decoration: none;
+				transition: background 0.15s, color 0.15s;
+			}
+			.back-link:hover {
+				background: var(--accent-light);
+				color: var(--accent);
+			}
+
+			@media (max-width: 720px) {
+				.post-title { font-size: 1.7rem; }
+				.post-header { padding-top: 1.5rem; }
 			}
 		</style>
 	</head>
 
 	<body>
 		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+
+		<article>
+			<div class="post-header">
+				<div class="post-meta">
+					{categoryInfo && (
+						<a href={`/invest-at-13/categories/${categoryInfo.value}/`} class={`category-badge ${categoryInfo.value}`}>
+							{categoryInfo.emoji} {categoryInfo.label}
+						</a>
+					)}
+					<time class="post-date" datetime={pubDate.toISOString()}>
+						<FormattedDate date={pubDate} />
+					</time>
+					{updatedDate && (
+						<span class="update-notice">
+							(更新: <FormattedDate date={updatedDate} />)
+						</span>
+					)}
 				</div>
+
+				<h1 class="post-title">{title}</h1>
+				{description && <p class="post-description">{description}</p>}
+			</div>
+
+			{heroImage && (
+				<div class="hero-image">
+					<Image width={860} height={430} src={heroImage} alt={title} />
+				</div>
+			)}
+
+			<div class="post-body">
 				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
 					<slot />
 				</div>
-			</article>
-		</main>
+			</div>
+		</article>
+
+		<div class="post-nav">
+			<a href="/invest-at-13/blog/" class="back-link">
+				← ブログ一覧に戻る
+			</a>
+		</div>
+
 		<Footer />
 	</body>
 </html>

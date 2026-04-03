@@ -1,16 +1,111 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+title: "プログラミング知識ゼロの13歳が、AIと一緒にブログを1から作った話"
+description: "GitHubって何？から始まった中学1年生が、Claude Code（AI）と一緒にAstro + Cloudflare Pagesでブログを完全無料で構築した全記録。"
+pubDate: "Apr 02 2026"
+category: "ai"
+tags: ["Astro", "Claude Code", "ブログ構築", "初心者", "中学生"]
+heroImage: "../../assets/hero.jpeg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+## きっかけは、お母さんだった
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+うちのお母さんは建築・CAD系の仕事をしていて、最近「AIで仕事を自動化する」っていうテーマでブログを始めようとしてた。
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+それを横で見てたら、**自分もやりたくなった。**
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+最初は「はてなブログでいいかな」って思ってたんだけど、お母さんと一緒にClaude Code（AI）と話してるうちに「え、自分で1から作れるの？」ってなって。
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+**だったら1から作りたい。** その方がかっこいいし、勉強になるし。
+
+## 使った技術（全部無料！）
+
+- **Astro** --- 静的サイトジェネレーター（ブログ向き）
+- **Cloudflare Pages** --- ホスティング（無料で世界に公開できる）
+- **Sveltia CMS** --- 記事をブラウザから書ける管理画面
+- **GitHub** --- コードを保存する場所
+
+全部合わせて **0円**。中学生の財布にも優しい。
+
+## GitHubって何？からのスタート
+
+正直に言います。最初、**GitHubが何か全然わかってなかった。**
+
+「プログラマーが使うSNSみたいなもの」って説明されて、「あー、コードのInstagramね」って理解した（たぶん違う）。
+
+アカウントを作って、リポジトリっていうフォルダみたいなものを作って。ここまではなんとかなった。
+
+## Node.jsで最初のピンチ
+
+次にNode.jsっていうのをインストールしないといけなかったんだけど、ターミナルに打ち込んだら：
+
+```bash
+node --version
+```
+
+```
+command not found: node
+```
+
+**は？？？**
+
+めちゃくちゃ焦った。でもAIが「まだインストールしてないだけだよ」って教えてくれて、Node.jsの公式サイトからダウンロードしてインストールした。
+
+これだけ。なんだ、簡単じゃんって思った（さっきの焦りは何だったのか）。
+
+## Astroプロジェクト作成 --- ロケット発射！
+
+いよいよAstroのプロジェクトを作る。ターミナルに打ち込む：
+
+```bash
+npm create astro@latest
+```
+
+なんか宇宙っぽい画面が出てきて、ロケットが発射されたみたいな演出があった。**テンション上がった。**
+
+テンプレートを選んで、いくつか質問に答えるだけで、数秒で土台が完成。
+
+## AIがデザインを全部やってくれた
+
+ここからがすごかった。Claude Codeに「中学生が投資とかAIについて書くブログ」って伝えたら、**デザインを全部作ってくれた。**
+
+- ヘッダーのデザイン
+- 記事一覧のレイアウト
+- カテゴリーページ
+- レスポンシブ対応（スマホでも見やすい）
+
+自分がやったのは「もうちょっと色変えて」とか「カテゴリー増やして」とか言うだけ。プログラミングの知識ゼロでもブログができていく。**これがAIの力か**と思った。
+
+## カテゴリーは5つ
+
+自分の興味に合わせて5つのカテゴリーを作った：
+
+1. **AI活用** --- ChatGPTとかClaudeとか、実際に使ってみた話
+2. **投資** --- 13歳なりに勉強してること
+3. **ゲーム** --- ただの攻略じゃなくて、考察も入れたい
+4. **料理** --- うどんとかチュロス、食べるのが好き
+5. **ガジェット** --- 気になるデバイスとか
+
+## 学んだこと
+
+今日1日で学んだことをまとめると：
+
+- **ターミナルは怖くない**（最初はビビるけど）
+- **AIに聞けば大体なんとかなる**
+- **無料でもちゃんとしたサイトが作れる**
+- **「わからない」は恥ずかしくない、スタート地点**
+
+プログラミングの知識がゼロでも、AIと一緒なら本当にブログが作れた。これは嘘じゃない。
+
+## 次にやること
+
+次の記事では、Cloudflare Pagesを使って**このブログを世界に公開する手順**をまとめる予定。完全無料で、自分のサイトを全世界に公開する方法を、同じ初心者目線で書く。
+
+あと、Sveltia CMSを設定して、ターミナルを使わなくてもスマホのブラウザから記事が書けるようにする。
+
+**13歳、プログラミング知識ゼロ、でもAIがあれば何でもできる気がしてる。**
+
+これからこのブログで、AI・投資・ゲーム・料理・ガジェットについて書いていくので、よかったら読んでください！
+
+---
+
+*invest-at-13*

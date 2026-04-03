@@ -1,16 +1,80 @@
 ---
-title: 'Third post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 22 2022'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+title: "13歳が「投資」を勉強し始めた話"
+description: "妹に先を越されて悔しくて投資の勉強を始めた13歳。インデックス投資や複利の仕組み、実際に母経由で投資を始めた話を正直に書きます。"
+pubDate: "Apr 18 2024"
+category: "investment"
+heroImage: "../../assets/invest-hero.png"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+## きっかけは、妹だった
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+ある日、妹がお年玉で投資を始めた。
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+**え、先にやられた。**
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+悔しかった。年下に先を越されるのは兄のプライドが許さない。そこから「絶対に追い抜く」って決めて、投資の勉強を始めた。
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+きっかけはカッコよくない。でも、**負けず嫌いが一番の原動力だったりする。**
+
+## 調べてみたら意外と面白かった
+
+最初に「投資 初心者」で検索したら、難しい言葉ばかり出てきました。
+
+- 株式投資
+- インデックスファンド
+- 複利
+- NISAとiDeCo
+- テクニカル分析……
+
+中学生には意味不明でした（笑）
+
+でも、諦めずに調べ続けたら、だんだん面白くなってきた。
+
+## インデックス投資ってなに？
+
+一番わかりやすかったのは「インデックス投資」の説明。
+
+簡単に言うと「日本や世界の経済全体に賭ける」投資です。
+
+個別の会社の株を買うんじゃなくて、「経済全体が成長するだろう」という予測に賭ける。
+
+過去のデータを見ると、長い目で見れば世界の経済は成長し続けている。だから、長期間持ち続ければ増える可能性が高い——というのが基本的な考え方です。
+
+## 「複利」がすごい
+
+複利の説明を聞いて、びっくりしました。
+
+たとえば、1万円を年利5%で運用すると：
+
+- 1年後：10,500円
+- 10年後：約16,300円
+- 30年後：約43,200円
+
+30年後には4倍以上になる。お金がお金を増やす仕組み。
+
+そして「若いうちから始めるほど有利」というのが、ちょっと嬉しかった。13歳から始めれば、50歳のときには37年分の複利効果がある！
+
+## 13歳でも投資はできる
+
+未成年だから自分では口座を開けない。でも、**母経由で実際に投資を始めた。**
+
+もともと母も投資をやっていて、妹も始めていた。自分だけ取り残されるわけにはいかない。本を読んで、YouTubeで学んで、母に「自分もやりたい」と伝えた。
+
+13歳でも、インデックス投資はできる。
+
+## この記事のきっかけになった1冊
+
+- [「本当の自由を手に入れる お金の大学」（両@リベ大学長）](https://www.amazon.co.jp/dp/4023323780)
+
+[![お金の大学](https://books.google.com/books/content?id=Rgjx0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api)](https://www.amazon.co.jp/dp/4023323780)
+
+
+---
+
+投資って、お金の話だけじゃなくて、経済の仕組みや世界のことを学ぶきっかけになりました。
+
+次回もこの話を続けます！
+
+---
+
+*invest-at-13*

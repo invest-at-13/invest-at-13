@@ -1,0 +1,37 @@
+backend:
+  name: github
+  repo: invest-at-13/invest-at-13
+  branch: main
+
+media_folder: public/images/blog
+public_folder: /invest-at-13/images/blog
+
+site_url: https://invest-at-13.github.io/invest-at-13
+display_url: https://invest-at-13.github.io/invest-at-13
+
+collections:
+  - name: blog
+    label: ブログ記事
+    folder: src/content/blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: タイトル, name: title, widget: string }
+      - { label: 公開日, name: pubDate, widget: datetime }
+      - { label: 説明, name: description, widget: text }
+      - { label: アイキャッチ画像, name: heroImage, widget: image, required: false }
+      - label: カテゴリー
+        name: category
+        widget: select
+        required: false
+        options:
+          - { label: AI活用, value: ai }
+          - { label: 投資, value: investment }
+          - { label: ゲーム, value: game }
+          - { label: 料理, value: cooking }
+          - { label: ガジェット, value: gadget }
+      - label: タグ
+        name: tags
+        widget: list
+        required: false
+      - { label: 本文, name: body, widget: markdown }
