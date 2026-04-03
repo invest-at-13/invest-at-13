@@ -134,7 +134,7 @@ const categoryInfo = category ? CATEGORIES.find(c => c.value === category) : nul
 			<div class="post-header">
 				<div class="post-meta">
 					{categoryInfo && (
-						<a href={`/invest-at-13/categories/${categoryInfo.value}/`} class={`category-badge ${categoryInfo.value}`}>
+						<a href={`/categories/${categoryInfo.value}/`} class={`category-badge ${categoryInfo.value}`}>
 							{categoryInfo.emoji} {categoryInfo.label}
 						</a>
 					)}
@@ -166,7 +166,7 @@ const categoryInfo = category ? CATEGORIES.find(c => c.value === category) : nul
 		</article>
 
 		<div class="post-nav">
-			<a href="/invest-at-13/blog/" class="back-link">
+			<a href="/blog/" class="back-link">
 				← ブログ一覧に戻る
 			</a>
 		</div>

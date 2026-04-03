@@ -47,9 +47,9 @@ const { category, posts } = Astro.props;
 		<!-- Other categories -->
 		<div class="other-categories">
 			<div class="other-cats-inner">
-				<a href="/invest-at-13/blog/" class="other-cat-link">すべて</a>
+				<a href="/blog/" class="other-cat-link">すべて</a>
 				{CATEGORIES.filter(c => c.value !== category.value).map(cat => (
-					<a href={`/invest-at-13/categories/${cat.value}/`} class="other-cat-link">
+					<a href={`/categories/${cat.value}/`} class="other-cat-link">
 						{cat.emoji} {cat.label}
 					</a>
 				))}
@@ -63,7 +63,7 @@ const { category, posts } = Astro.props;
 						<li class="post-item">
 							<article class="post-card">
 								{post.data.heroImage && (
-									<a href={`/invest-at-13/blog/${post.id}/`} class="card-image-link" tabindex="-1" aria-hidden="true">
+									<a href={`/blog/${post.id}/`} class="card-image-link" tabindex="-1" aria-hidden="true">
 										<div class="card-image">
 											<Image width={400} height={220} src={post.data.heroImage} alt={post.data.title} />
 										</div>
@@ -76,10 +76,10 @@ const { category, posts } = Astro.props;
 										</time>
 									</div>
 									<h2 class="card-title">
-										<a href={`/invest-at-13/blog/${post.id}/`}>{post.data.title}</a>
+										<a href={`/blog/${post.id}/`}>{post.data.title}</a>
 									</h2>
 									<p class="card-desc">{post.data.description}</p>
-									<a href={`/invest-at-13/blog/${post.id}/`} class="read-more">
+									<a href={`/blog/${post.id}/`} class="read-more">
 										続きを読む →
 									</a>
 								</div>
@@ -90,7 +90,7 @@ const { category, posts } = Astro.props;
 			) : (
 				<div class="no-posts">
 					<p>このカテゴリーにはまだ記事がありません。<br/>近日公開予定です！</p>
-					<a href="/invest-at-13/blog/" class="back-link">ブログ一覧へ戻る</a>
+					<a href="/blog/" class="back-link">ブログ一覧へ戻る</a>
 				</div>
 			)}
 		</main>

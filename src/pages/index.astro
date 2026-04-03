@@ -34,15 +34,15 @@ const latestPosts = allPosts.slice(0, 6);
 					難しい言葉を使わず、同年代の子にも伝わるように書くのが目標。
 				</p>
 				<div class="hero-actions">
-					<a href="/invest-at-13/blog/" class="btn-primary">記事を読む →</a>
-					<a href="/invest-at-13/about/" class="btn-secondary">プロフィール</a>
+					<a href="/blog/" class="btn-primary">記事を読む →</a>
+					<a href="/about/" class="btn-secondary">プロフィール</a>
 				</div>
 			</div>
 
 			<!-- Topic chips -->
 			<div class="topic-chips">
 				{CATEGORIES.map(cat => (
-					<a href={`/invest-at-13/categories/${cat.value}/`} class={`topic-chip ${cat.value}`}>
+					<a href={`/categories/${cat.value}/`} class={`topic-chip ${cat.value}`}>
 						{cat.emoji} {cat.label}
 					</a>
 				))}
@@ -54,7 +54,7 @@ const latestPosts = allPosts.slice(0, 6);
 			<section class="latest-posts">
 				<div class="section-header">
 					<h2 class="section-title">最新記事</h2>
-					<a href="/invest-at-13/blog/" class="see-all">すべて見る →</a>
+					<a href="/blog/" class="see-all">すべて見る →</a>
 				</div>
 
 				{latestPosts.length > 0 ? (
@@ -65,7 +65,7 @@ const latestPosts = allPosts.slice(0, 6);
 								: null;
 							return (
 								<article class={`post-card ${index === 0 ? 'post-card--featured' : ''}`}>
-									<a href={`/invest-at-13/blog/${post.id}/`} class="card-link" tabindex="-1" aria-hidden="true">
+									<a href={`/blog/${post.id}/`} class="card-link" tabindex="-1" aria-hidden="true">
 										{post.data.heroImage && (
 											<div class="card-image">
 												<Image
@@ -80,7 +80,7 @@ const latestPosts = allPosts.slice(0, 6);
 									<div class="card-body">
 										<div class="card-meta">
 											{catInfo && (
-												<a href={`/invest-at-13/categories/${catInfo.value}/`} class={`category-badge ${catInfo.value}`}>
+												<a href={`/categories/${catInfo.value}/`} class={`category-badge ${catInfo.value}`}>
 													{catInfo.emoji} {catInfo.label}
 												</a>
 											)}
@@ -89,7 +89,7 @@ const latestPosts = allPosts.slice(0, 6);
 											</time>
 										</div>
 										<h3 class="card-title">
-											<a href={`/invest-at-13/blog/${post.id}/`}>{post.data.title}</a>
+											<a href={`/blog/${post.id}/`}>{post.data.title}</a>
 										</h3>
 										<p class="card-desc">{post.data.description}</p>
 									</div>
@@ -111,7 +111,7 @@ const latestPosts = allPosts.slice(0, 6);
 				</div>
 				<div class="categories-grid">
 					{CATEGORIES.map(cat => (
-						<a href={`/invest-at-13/categories/${cat.value}/`} class={`cat-card cat-card--${cat.value}`}>
+						<a href={`/categories/${cat.value}/`} class={`cat-card cat-card--${cat.value}`}>
 							<span class="cat-emoji">{cat.emoji}</span>
 							<span class="cat-label">{cat.label}</span>
 						</a>
@@ -130,7 +130,7 @@ const latestPosts = allPosts.slice(0, 6);
 							AIツールを使った勉強、ちょっとした投資の勉強、ゲーム攻略、
 							自炊レシピなど、日常のことを本気で語っています。
 						</p>
-						<a href="/invest-at-13/about/" class="btn-secondary">もっと読む →</a>
+						<a href="/about/" class="btn-secondary">もっと読む →</a>
 					</div>
 				</div>
 			</section>

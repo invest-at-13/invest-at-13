@@ -30,11 +30,11 @@ const posts = (await getCollection('blog')).sort(
 		<!-- Category filter -->
 		<div class="filter-bar">
 			<div class="filter-inner">
-				<a href="/invest-at-13/blog/" class="filter-chip filter-chip--all active">
+				<a href="/blog/" class="filter-chip filter-chip--all active">
 					すべて
 				</a>
 				{CATEGORIES.map(cat => (
-					<a href={`/invest-at-13/categories/${cat.value}/`} class={`filter-chip filter-chip--${cat.value}`}>
+					<a href={`/categories/${cat.value}/`} class={`filter-chip filter-chip--${cat.value}`}>
 						{cat.emoji} {cat.label}
 					</a>
 				))}
@@ -52,7 +52,7 @@ const posts = (await getCollection('blog')).sort(
 							<li class="post-item">
 								<article class="post-card">
 									{post.data.heroImage && (
-										<a href={`/invest-at-13/blog/${post.id}/`} class="card-image-link" tabindex="-1" aria-hidden="true">
+										<a href={`/blog/${post.id}/`} class="card-image-link" tabindex="-1" aria-hidden="true">
 											<div class="card-image">
 												<Image width={400} height={220} src={post.data.heroImage} alt={post.data.title} />
 											</div>
@@ -61,7 +61,7 @@ const posts = (await getCollection('blog')).sort(
 									<div class="card-body">
 										<div class="card-meta">
 											{catInfo && (
-												<a href={`/invest-at-13/categories/${catInfo.value}/`} class={`category-badge ${catInfo.value}`}>
+												<a href={`/categories/${catInfo.value}/`} class={`category-badge ${catInfo.value}`}>
 													{catInfo.emoji} {catInfo.label}
 												</a>
 											)}
@@ -70,10 +70,10 @@ const posts = (await getCollection('blog')).sort(
 											</time>
 										</div>
 										<h2 class="card-title">
-											<a href={`/invest-at-13/blog/${post.id}/`}>{post.data.title}</a>
+											<a href={`/blog/${post.id}/`}>{post.data.title}</a>
 										</h2>
 										<p class="card-desc">{post.data.description}</p>
-										<a href={`/invest-at-13/blog/${post.id}/`} class="read-more">
+										<a href={`/blog/${post.id}/`} class="read-more">
 											続きを読む →
 										</a>
 									</div>
