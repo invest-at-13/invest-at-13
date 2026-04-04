@@ -3,7 +3,7 @@ title: "ブログを世界に公開した日 — Cloudflare Pagesデプロイ記
 description: "自分で作ったブログを、ついに世界中の人が見られるようにした。Cloudflare Pagesでのデプロイ、翻訳機能の追加、トラブルの連続を正直に書きます。"
 pubDate: "Apr 03 2026"
 category: "ai"
-heroImage: "../../assets/hero.jpeg"
+heroImage: "../../assets/deploy-hero.png"
 ---
 
 ## ついに公開する日が来た
