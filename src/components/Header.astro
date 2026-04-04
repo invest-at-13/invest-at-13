@@ -15,7 +15,19 @@ import { SITE_TITLE } from '../consts';
 			<a href="/about/" class="nav-link">プロフィール</a>
 		</nav>
 
-		<div id="google_translate_element"></div>
+		<div class="translate-wrapper">
+			<button class="translate-btn" id="translate-btn" aria-label="翻訳">
+				🌐
+			</button>
+			<div class="translate-dropdown" id="translate-dropdown">
+				<a href="#" data-lang="en">🇺🇸 English</a>
+				<a href="#" data-lang="zh-CN">🇨🇳 中文</a>
+				<a href="#" data-lang="ko">🇰🇷 한국어</a>
+				<a href="#" data-lang="es">🇪🇸 Español</a>
+				<a href="#" data-lang="fr">🇫🇷 Français</a>
+				<a href="#" data-lang="ja">🇯🇵 日本語</a>
+			</div>
+		</div>
 
 		<button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
 			<span></span>
@@ -44,17 +56,30 @@ import { SITE_TITLE } from '../consts';
 	}
 </script>
 
-<script is:inline>
-	function googleTranslateElementInit() {
-		new google.translate.TranslateElement({
-			pageLanguage: 'ja',
-			includedLanguages: 'ja,en,zh-CN,zh-TW,ko,es,fr,de,pt,th,vi',
-			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-			autoDisplay: false
-		}, 'google_translate_element');
+<script>
+	const translateBtn = document.getElementById('translate-btn');
+	const translateDropdown = document.getElementById('translate-dropdown');
+	if (translateBtn && translateDropdown) {
+		translateBtn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			translateDropdown.classList.toggle('is-open');
+		});
+		document.addEventListener('click', () => {
+			translateDropdown.classList.remove('is-open');
+		});
+		translateDropdown.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				const lang = (e.currentTarget as HTMLAnchorElement).dataset.lang;
+				if (lang === 'ja') {
+					window.location.href = window.location.pathname;
+				} else {
+					window.location.href = `https://translate.google.com/translate?sl=ja&tl=${lang}&u=${encodeURIComponent(window.location.href)}`;
+				}
+			});
+		});
 	}
 </script>
-<script is:inline src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <style>
 	.site-header {
@@ -121,20 +146,51 @@ import { SITE_TITLE } from '../consts';
 		color: var(--accent);
 	}
 
-	/* Google Translate */
-	#google_translate_element {
+	/* Translate */
+	.translate-wrapper {
+		position: relative;
 		flex-shrink: 0;
 	}
-	:global(.goog-te-gadget) {
-		font-size: 0 !important;
-	}
-	:global(.goog-te-gadget .goog-te-combo) {
-		font-size: 0.85rem;
-		padding: 0.3rem 0.5rem;
+	.translate-btn {
+		background: none;
 		border: 1px solid var(--gray-light);
 		border-radius: var(--radius-sm);
-		background: var(--white);
+		padding: 0.35rem 0.5rem;
+		font-size: 1.2rem;
 		cursor: pointer;
+		line-height: 1;
+		transition: background 0.15s;
+	}
+	.translate-btn:hover {
+		background: var(--gray-lighter);
+	}
+	.translate-dropdown {
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 100%;
+		margin-top: 0.4rem;
+		background: var(--white);
+		border: 1px solid var(--gray-light);
+		border-radius: var(--radius);
+		box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		min-width: 160px;
+		z-index: 200;
+		overflow: hidden;
+	}
+	.translate-dropdown.is-open {
+		display: block;
+	}
+	.translate-dropdown a {
+		display: block;
+		padding: 0.6rem 1rem;
+		color: var(--black);
+		text-decoration: none;
+		font-size: 0.9rem;
+		transition: background 0.15s;
+	}
+	.translate-dropdown a:hover {
+		background: var(--gray-lighter);
 	}
 
 	/* Hamburger */
