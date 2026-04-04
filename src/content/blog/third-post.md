@@ -1,7 +1,7 @@
 ---
 title: "13歳が「投資」を勉強し始めた話"
 description: "妹に先を越されて悔しくて投資の勉強を始めた13歳。インデックス投資や複利の仕組み、実際に母経由で投資を始めた話を正直に書きます。"
-pubDate: "Apr 18 2024"
+pubDate: "Apr 03 2026"
 category: "investment"
 heroImage: "../../assets/invest-hero.png"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "ChatGPTを1ヶ月使ってわかった、中学生的な使い方"
 description: "AIを毎日使い続けて気づいたこと。宿題に使うと怒られる？正直に書きます。中学生目線のリアルなAI活用レポート。"
-pubDate: "Apr 10 2024"
+pubDate: "Apr 03 2026"
 category: "ai"
 heroImage: "../../assets/chatgpt-hero.png"
 ---
