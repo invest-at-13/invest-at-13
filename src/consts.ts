@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'invest-at-13';
-export const SITE_DESCRIPTION = '13歳がAI・投資・ゲーム・料理を本気で語る';
+export const SITE_DESCRIPTION = '14歳がAI・投資・ゲーム・料理を本気で語る';
 
 export const CATEGORIES = [
 	{ label: 'AI活用', value: 'ai', emoji: '🤖' },
