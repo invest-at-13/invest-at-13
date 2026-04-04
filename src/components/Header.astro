@@ -15,6 +15,8 @@ import { SITE_TITLE } from '../consts';
 			<a href="/about/" class="nav-link">プロフィール</a>
 		</nav>
 
+		<div id="google_translate_element"></div>
+
 		<button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
 			<span></span>
 			<span></span>
@@ -41,6 +43,18 @@ import { SITE_TITLE } from '../consts';
 		});
 	}
 </script>
+
+<script is:inline>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ja',
+			includedLanguages: 'en,zh-CN,zh-TW,ko,es,fr,de,pt,th,vi',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script is:inline src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <style>
 	.site-header {
@@ -105,6 +119,22 @@ import { SITE_TITLE } from '../consts';
 	.nav-link.active {
 		background: var(--accent-light);
 		color: var(--accent);
+	}
+
+	/* Google Translate */
+	#google_translate_element {
+		flex-shrink: 0;
+	}
+	:global(.goog-te-gadget) {
+		font-size: 0 !important;
+	}
+	:global(.goog-te-gadget .goog-te-combo) {
+		font-size: 0.85rem;
+		padding: 0.3rem 0.5rem;
+		border: 1px solid var(--gray-light);
+		border-radius: var(--radius-sm);
+		background: var(--white);
+		cursor: pointer;
 	}
 
 	/* Hamburger */
