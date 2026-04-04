@@ -17,7 +17,7 @@ import { SITE_TITLE } from '../consts';
 
 		<div class="translate-wrapper">
 			<button class="translate-btn" id="translate-btn" aria-label="翻訳">
-				🌐
+				🌐 翻訳/Translate
 			</button>
 			<div class="translate-dropdown" id="translate-dropdown">
 				<a href="#" data-lang="en">🇺🇸 English</a>
@@ -154,12 +154,14 @@ import { SITE_TITLE } from '../consts';
 	.translate-btn {
 		background: none;
 		border: 1px solid var(--gray-light);
-		border-radius: var(--radius-sm);
-		padding: 0.35rem 0.5rem;
-		font-size: 1.2rem;
+		border-radius: var(--radius-full);
+		padding: 0.35rem 0.75rem;
+		font-size: 0.85rem;
+		font-weight: 500;
 		cursor: pointer;
-		line-height: 1;
+		line-height: 1.4;
 		transition: background 0.15s;
+		white-space: nowrap;
 	}
 	.translate-btn:hover {
 		background: var(--gray-lighter);
