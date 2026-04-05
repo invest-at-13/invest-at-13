@@ -77,4 +77,4 @@ heroImage: "../../assets/invest-hero.png"
 
 ---
 
-*invest-at-13*
+#投資初心者 #インデックス投資 #複利 #中学生投資 #お金の勉強 #14歳 #資産運用
