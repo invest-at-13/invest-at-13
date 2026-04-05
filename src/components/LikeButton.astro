@@ -1,0 +1,120 @@
+---
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+---
+
+<div class="like-wrapper" data-slug={slug}>
+  <button class="like-btn" id="like-btn" aria-label="いいね">
+    <span class="like-icon">🤍</span>
+    <span class="like-count" id="like-count">0</span>
+    <span class="like-text">いいね</span>
+  </button>
+</div>
+
+<script>
+  const wrapper = document.querySelector('.like-wrapper') as HTMLElement;
+  const slug = wrapper?.dataset.slug;
+  const btn = document.getElementById('like-btn');
+  const countEl = document.getElementById('like-count');
+  const iconEl = btn?.querySelector('.like-icon');
+  const storageKey = `liked-${slug}`;
+
+  async function fetchLikes() {
+    try {
+      const res = await fetch(`/api/likes/${slug}`);
+      const data = await res.json();
+      if (countEl) countEl.textContent = String(data.likes);
+      if (localStorage.getItem(storageKey) && iconEl) {
+        iconEl.textContent = '❤️';
+        btn?.classList.add('liked');
+      }
+    } catch (e) {
+      // API not available yet
+    }
+  }
+
+  btn?.addEventListener('click', async () => {
+    if (localStorage.getItem(storageKey)) return;
+    try {
+      const res = await fetch(`/api/likes/${slug}`, { method: 'POST' });
+      const data = await res.json();
+      if (countEl) countEl.textContent = String(data.likes);
+      if (iconEl) iconEl.textContent = '❤️';
+      btn?.classList.add('liked');
+      localStorage.setItem(storageKey, 'true');
+      btn?.classList.add('like-animate');
+      setTimeout(() => btn?.classList.remove('like-animate'), 500);
+    } catch (e) {
+      // API not available yet
+    }
+  });
+
+  fetchLikes();
+</script>
+
+<style>
+  .like-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .like-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--white);
+    border: 2px solid var(--gray-light);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-dark);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .like-btn:hover {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,107,107,0.2);
+  }
+
+  .like-btn.liked {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    cursor: default;
+  }
+
+  .like-btn.liked:hover {
+    transform: none;
+  }
+
+  .like-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .like-count {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .like-text {
+    font-size: 0.9rem;
+  }
+
+  .like-animate {
+    animation: pop 0.5s ease;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+</style>
