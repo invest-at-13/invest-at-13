@@ -108,4 +108,4 @@ npm create astro@latest
 
 ---
 
-#中学生ブログ #プログラミング初心者 #ClaudeCode #Astro #ブログ構築 #AI活用 #14歳
+#中学生 #ブログ #プログラミング初心者 #ClaudeCode #Astro #ブログ構築 #AI活用

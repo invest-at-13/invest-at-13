@@ -114,4 +114,4 @@ Cloudflare PagesはGitHubと連携してるから、これからは：
 
 *次はGoogle Search Consoleに登録して、検索で見つけてもらえるようにする予定！*
 
-#CloudflarePages #デプロイ #ブログ公開 #翻訳機能 #中学生エンジニア #無料ホスティング #WebDev
+#CloudflarePages #デプロイ #ブログ公開 #翻訳機能 #中学生 #無料ホスティング #WebDev
